@@ -45,7 +45,7 @@
 
 ## About The Project
 
-![Mockup](https://raw.githubusercontent.com/markom01/portfolio/main/images/portfolio/Safari-Dark-Mode.png)
+![Mockup](./images/portfolio_v1.png)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
