@@ -1,0 +1,55 @@
+.projects {
+  &__image {
+    position: relative;
+    display: flex;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    margin-right: 50px;
+    border-radius: $border-radius-rect;
+    scroll-snap-align: start;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+
+    &__slider {
+      display: flex;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      margin: {
+        top: 50px;
+        bottom: 50px;
+      }
+
+      &__wrapper {
+        position: relative;
+
+        &::after {
+          position: absolute;
+          bottom: 20px;
+          right: 10px;
+          content: "Scroll left →";
+          font-size: 15px;
+          color: $text-color;
+        }
+      }
+
+      &::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+
+        &-thumb {
+          background: black;
+          border-radius: 10px;
+        }
+
+        &-track {
+          background: transparent;
+        }
+      }
+    }
+  }
+}

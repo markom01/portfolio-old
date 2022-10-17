@@ -1,0 +1,41 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the footer of the site/application.
+// -----------------------------------------------------------------------------
+
+footer {
+  position: relative;
+  @extend %grid;
+
+  .footer__wrapper {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .container {
+    padding-bottom: 0;
+  }
+
+  .icons {
+    display: inline-block;
+    margin: 10px;
+  }
+
+  a {
+    font-size: 15px;
+  }
+
+  p {
+    font-size: 15px;
+    color: $white-color;
+  }
+
+  .footer {
+    &__copyright {
+      color: $text-color;
+
+      &__link {
+        position: absolute;
+        bottom: 20px;
+      }
+    }
+  }
+}

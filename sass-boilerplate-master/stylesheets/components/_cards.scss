@@ -1,0 +1,128 @@
+.card {
+  @extend %card--skin;
+  @extend %grid;
+  width: max-content;
+  gap: 30px;
+  @include colored-card(18, 88%, 55%);
+  transition: $transition-duration;
+
+  &__description {
+    padding-inline: 30px;
+  }
+
+  &__icon {
+    height: 70px;
+    width: auto;
+  }
+
+  &--html5:hover {
+    @include colored-card(18, 88%, 55%);
+  }
+
+  &--css3:hover {
+    @include colored-card(222, 88%, 55%);
+  }
+
+  &--js:hover {
+    @include colored-card(53, 93%, 54%);
+  }
+
+  &--sass:hover {
+    @include colored-card(330, 53%, 60%);
+  }
+
+  &--bootstrap:hover {
+    @include colored-card(272, 98%, 53%);
+  }
+
+  &--git:hover {
+    @include colored-card(10, 86%, 57%);
+  }
+
+  &--figma:hover {
+    @include colored-card(6, 100%, 69%);
+  }
+
+  &--xd:hover {
+    @include colored-card(303, 100%, 69%);
+  }
+
+  &--photoshop:hover {
+    @include colored-card(205, 100%, 60%);
+  }
+
+  &--illustrator:hover {
+    @include colored-card(36, 100%, 50%);
+  }
+}
+
+.cards {
+  .card {
+    width: 200px;
+    height: 200px;
+  }
+
+  .cards__heading {
+    &--front-end {
+      margin-top: 60px;
+
+      &::before {
+        content: image("icons/front-end-icon.svg", "../");
+        display: inline-block;
+        position: relative;
+        top: 2.5px;
+        margin-right: 10px;
+        width: 20px;
+        height: 20px;
+      }
+    }
+    
+
+    &--ui-ux::before {
+      content: image("icons/ui-ux-icon.svg", "../../");
+      display: inline-block;
+      margin-right: 10px;
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+.card__info {
+  padding-inline: 30px;
+
+  &__heading {
+    margin-bottom: 10px;
+    color: $white-color;
+  }
+
+  &__tech-stack {
+    background-color: #333;
+    border-radius: $border-radius;
+    display: grid;
+    gap: 10px;
+    padding: 5px 10px;
+    grid-auto-flow: column;
+    margin-inline: auto;
+    width: min-content;
+
+    &__img {
+      width: 30px;
+      aspect-ratio: 1 / 1;
+    }
+  }
+}
+
+.cards__wrapper {
+  grid-template-columns: repeat(auto-fill, 250px);
+}
+
+@media screen and (max-width: 550px) {
+  .card {
+    width: 90vw;
+  }
+
+  .card__description {
+    padding-inline: 15px;
+  }
+}

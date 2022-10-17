@@ -1,0 +1,144 @@
+// -----------------------------------------------------------------------------
+// This file contains very basic styles.
+// -----------------------------------------------------------------------------
+
+/**
+ * Set up a decent box model on the root element
+ */
+html {
+  box-sizing: border-box;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body, 
+footer {
+  background-size: 100vw 100vh;
+  background-repeat: no-repeat;
+}
+
+body {
+  background-image: image("bg/blurred-polygonal-background.jpg", "../../");
+  animation: drop 1s;
+}
+
+footer {
+  background-image: image("bg/blurred-polygonal-background-rotated.jpg", "../../");
+}
+
+::selection {
+  color: $white-color;
+  background-color: $brand-color;
+}
+
+section:not(.header) {
+  margin-bottom: 200px;
+}
+
+section,
+footer {
+  min-height: 100vh;
+}
+
+.header {
+  min-height: unset;
+}
+
+li {
+  list-style-type: none;
+  color: $white-color;
+}
+
+textarea {
+  resize: none;
+}
+
+.wrapper {
+  @extend %grid;
+  justify-content: space-around;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.row {
+  &__wrapper {
+    grid-template-columns: repeat(auto-fill, 450px);
+    gap: 50px;
+  }
+}
+
+//Animations
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: translateY(5vh);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes drop {
+  from {
+    background-position: 0 -100vh;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    transform: translateX(-50vw);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+header > * {
+  animation: appear 2s;
+}
+
+@for $i from 1 through 6 {
+  .hero {
+
+    & > :nth-child(#{$i}) {
+      animation-name: pop;
+      animation-duration: 1.5s;
+      animation-delay: $i * 0.5s;
+      animation-fill-mode: both;
+    }
+  }
+}
+
+/**
+ * Make all elements from the DOM inherit from the parent box-sizing
+ * Since `*` has a specificity of 0, it does not override the `html` value
+ * making all elements inheriting from the root box-sizing value
+ * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/**
+ * Basic styles for links
+ */
+a {
+  color: $white-color;
+  text-decoration: none;
+}

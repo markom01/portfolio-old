@@ -1,0 +1,27 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button component.
+// -----------------------------------------------------------------------------
+.button {
+  display: inline-block;
+  cursor: pointer;
+  padding: 12.5px 20px;
+  font-size: 15px;
+  min-width: 150px;
+  border-radius: $border-radius;
+  background: transparent;
+  transition: $transition-duration;
+
+  &--primary {
+    @extend %interaction--primary;
+
+    color: $brand-color;
+    border: 2px solid $brand-color;
+  }
+
+  &--secondary {
+    @extend %interaction--secondary;
+
+    color: $white-color;
+    border: 2px solid $brand-color;
+  }
+}
